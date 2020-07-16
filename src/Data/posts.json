@@ -1,0 +1,44 @@
+[
+    {
+      "id":"postid01",
+      "heading":"amizofig",
+      "headImg":"https://picsum.photos/id/1005/200/200",
+      "ImgUrl":"https://picsum.photos/id/1047/500/500",
+      "like":["Mike","Mukul","Simran"],
+      "comments":[
+              {
+                  "user":"Mike",
+                  "comment":"Its Nice"
+              },
+              {
+                  "user":"Guchi",
+                  "comment":"No no no"
+              }
+      ]
+    },
+    {
+      "id":"postid02",
+      "heading":"it.girl.friday",
+      "headImg":"https://picsum.photos/id/1006/200/200",
+      "ImgUrl":"https://picsum.photos/id/1074/500/500",
+      "like":["Mike"],
+      "comments":[]
+    },
+    {
+      "id":"postid03",
+      "heading":"it.girl.friday",
+      "headImg":"https://picsum.photos/id/1008/200/200",
+      "ImgUrl":"https://picsum.photos/id/1070/500/500",
+      "like":[],
+      "comments":[]
+    },
+    {
+      "id":"postid04",
+      "heading":"it.girl.friday",
+      "headImg":"https://picsum.photos/id/1074/200/200",
+      "ImgUrl":"https://picsum.photos/id/1079/500/500",
+      "like":[],
+      "comments":[]
+    }
+    
+  ]
