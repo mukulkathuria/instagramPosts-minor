@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComments } from "../../Database/CommentReducer/comment.actions";
+import { addComments } from "../../Database/PostsReducer/posts.actions";
 import { FaPaperPlane } from "react-icons/fa";
 import { Inputs, SendBtn } from "./commentform.style";
 
