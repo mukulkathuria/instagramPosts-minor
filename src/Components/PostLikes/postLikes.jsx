@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addLike, removeLike } from "../../Database/PostsReducer/posts.actions";
 import { FaRegComment, FaRegHeart, FaHeart } from "react-icons/fa";
-import { IconDiv, PostLikeDiv } from "./postlikes.style";
+import { IconDiv, PostLikeDiv ,TotalLikesDiv } from "./postlikes.style";
 
 const PostLikes = ({ totallikes, userid, ...props }) => {
   const [liked, unLike] = React.useState(false);
@@ -27,11 +27,12 @@ const PostLikes = ({ totallikes, userid, ...props }) => {
         )}
         <FaRegComment />
       </IconDiv>
-      <div>
+      <hr />
+      <TotalLikesDiv>
         {totallikes.length > 0 ? (
-          <div>{`${totallikes.length}  likes`}</div>
+          <div><FaHeart />   {`${totallikes.length}  likes`}</div>
         ) : null}
-      </div>
+      </TotalLikesDiv>
     </PostLikeDiv>
   );
 };

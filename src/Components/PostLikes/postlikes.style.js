@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const PostLikeDiv = styled.div`
   display: flex;
   flex-direction: column;
+  hr{
+    border:0.1px solid #f1f1f1;
+    width:100%
+  }
 `;
 
 export const IconDiv = styled.div`
@@ -14,5 +18,14 @@ export const IconDiv = styled.div`
     &:hover {
       cursor: pointer;
     }
+  }
+`;
+
+export const TotalLikesDiv = styled.div`
+  display:flex;
+  align-items:center;
+  font-size:0.8rem;
+  svg{
+    font-size:0.8em;
   }
 `;
