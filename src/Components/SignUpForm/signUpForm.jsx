@@ -1,12 +1,24 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Formik, Form } from "formik";
 import FormControl from "../FormControl/formControl";
 import {
   initialValues,
   validationSchema,
 } from "./FormikControls/initialvalidation";
-import onSubmitting from "./FormikControls/submition";
-const SignUpForm = (props) => {
+import { registerUser } from "../../services/signUp.services";
+
+const SignUpForm = ({ history, ...props }) => {
+  const onSubmitting = async (values, submitprops) => {
+    try {
+      const user = await registerUser(values);
+      if (user.user) history.push("/posts/" + user.user.name);
+    } catch (err) {
+      submitprops.setSubmitting(false);
+      submitprops.setFieldError("email", err.response.data.error);
+    }
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -47,4 +59,4 @@ const SignUpForm = (props) => {
     </Formik>
   );
 };
-export default SignUpForm;
+export default withRouter(SignUpForm);

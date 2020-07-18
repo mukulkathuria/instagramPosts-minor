@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComments } from "../../Database/PostsReducer/posts.actions";
+import { addComments } from "../../Redux/PostsReducer/posts.actions";
 import { FaPaperPlane } from "react-icons/fa";
 import { Inputs, SendBtn } from "./commentform.style";
 
@@ -11,7 +11,11 @@ class CommentForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ comments: "" });
-    this.props.onAddComment(this.props.userid, this.state.comments);
+    this.props.onAddComment(
+      this.props.postid,
+      this.state.comments,
+      this.props.users.name
+    );
   };
   handleChange = (event) => {
     let value = event.target.value;
@@ -36,7 +40,8 @@ class CommentForm extends Component {
   }
 }
 const maptoDispatch = (dispatch) => ({
-  onAddComment: (postid, value) => dispatch(addComments(postid, value)),
+  onAddComment: (postid, value, username) =>
+    dispatch(addComments(postid, value, username)),
 });
 
 export default connect(null, maptoDispatch)(CommentForm);

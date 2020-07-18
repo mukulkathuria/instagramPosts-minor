@@ -1,0 +1,4 @@
+{
+    "authurl":"http://localhost:9000/user",
+    "baseurl":"http://localhost:9000"
+}

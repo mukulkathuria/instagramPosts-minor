@@ -9,17 +9,17 @@ const postsReducer = (state = initialValue, action) => {
     case actionType.addComment:
       return {
         ...state,
-        post: addCommenttoid(state.post, action.postid, action.value),
+        post: addCommenttoid(state.post, action.postid, action.value,action.username),
       };
     case actionType.addLike:
       return {
         ...state,
-        post: addLiketoid(state.post, action.postid),
+        post: addLiketoid(state.post, action.postid,action.username),
       };
       case actionType.removeLike:
           return{
               ...state,
-              post:removeLiketoid(state.post,action.postid)
+              post:removeLiketoid(state.post,action.postid,action.username)
           }
     default:
       return state;
