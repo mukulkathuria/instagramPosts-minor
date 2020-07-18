@@ -11,7 +11,7 @@ import {
 import { Link } from "react-router-dom";
 const SignInPage = () => {
   React.useEffect(() => {
-    document.title = "Login . Instagram";
+    document.title = "Login ● Instagram";
   }, []);
   return (
     <SignInDiv>

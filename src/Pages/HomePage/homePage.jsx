@@ -1,7 +1,7 @@
 import React from "react";
 import SignInPage from "../SignInPage/signIn";
 import { MainDiv, DivContainer, LeftDiv, RightDiv } from "./homePage.style";
-import Insta from '../../images/InstagramHome.png';
+import Insta from '../../images/instabg.png';
 
 const HomePage = () => {
   React.useEffect(() => {

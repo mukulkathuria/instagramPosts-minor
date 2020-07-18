@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const SignUpPage = () => {
   React.useEffect(() => {
-    document.title = "Sign up . Instagram";
+    document.title = "Sign up ● Instagram";
   }, []);
   return (
     <MainDiv>
