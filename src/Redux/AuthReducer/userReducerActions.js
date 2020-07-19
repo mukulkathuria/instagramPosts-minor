@@ -6,6 +6,10 @@ export const addUser = (token) => ({
   token,
 });
 
+export const removeUser = () => ({
+  type: actionTypes.removeUser,
+});
+
 export const verifyUser = (token) => {
   try {
     const decode = jwtDecode(token);

@@ -11,6 +11,11 @@ const userReducer = (state = initialValue, action) => {
         ...state,
         user: verifyUser(action.token),
       };
+      case actionTypes.removeUser:
+        return{
+          ...state,
+          user:null
+        }
     default:
       return state;
   }

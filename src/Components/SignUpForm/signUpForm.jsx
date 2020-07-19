@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { Formik, Form } from "formik";
 import FormControl from "../FormControl/formControl";
+import { toast } from "react-toastify";
 import {
   initialValues,
   validationSchema,
@@ -15,6 +16,10 @@ const SignUpForm = ({ history, ...props }) => {
       if (user.user) history.push("/posts/" + user.user.name);
     } catch (err) {
       submitprops.setSubmitting(false);
+      if (!err.response) {
+        toast.error("Server Error");
+        submitprops.resetForm(true);
+      }
       submitprops.setFieldError("email", err.response.data.error);
     }
   };
@@ -31,7 +36,7 @@ const SignUpForm = ({ history, ...props }) => {
             control="input"
             name="name"
             type="text"
-            placeholder="Name"
+            placeholder="Username"
           />
           <FormControl
             control="input"

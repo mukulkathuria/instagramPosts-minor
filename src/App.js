@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Posts from "./Pages/Posts/post";
 import HomePage from "./Pages/HomePage/homePage";
@@ -13,17 +13,12 @@ const App = ({ user, ...props }) => {
     <BrowserRouter>
       <ToastContainer />
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" render={(props) =>{
+          if(user) return <Posts user={user} {...props} />
+          return <HomePage {...props} />
+        }} />
         <Route exact path="/accounts/login" component={SignInPage} />
         <Route exact path="/accounts/emailsignup" component={SignUpPage} />
-        <Route
-          exact
-          path="/posts/:userid"
-          render={(props) => {
-            if (!user) return <Redirect to="/accounts/login" />;
-            return <Posts {...props} />;
-          }}
-        />
       </Switch>
     </BrowserRouter>
   );

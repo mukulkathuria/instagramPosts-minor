@@ -1,3 +1,4 @@
 export const actionTypes = {
-    addUser:'ADDUSER'
+    addUser:'ADDUSER',
+    removeUser:'REMOVEUSER'
 }
