@@ -1,4 +1,5 @@
 {
     "authurl":"http://localhost:9000/user",
-    "baseurl":"http://localhost:9000"
+    "baseurl":"http://localhost:9000",
+    "postsediturl":"http://localhost:9000/posts/edit?"
 }

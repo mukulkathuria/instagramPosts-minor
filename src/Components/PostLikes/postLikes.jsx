@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addLike, removeLike } from "../../Redux/PostsReducer/posts.actions";
+import { addLikeAsync, removeLikeAsync } from "../../Redux/PostsReducer/AsyncActions";
 import { FaRegComment, FaRegHeart, FaHeart } from "react-icons/fa";
 import { IconDiv, PostLikeDiv, TotalLikesDiv } from "./postlikes.style";
 
 const PostLikes = ({ totallikes, postid, user, ...props }) => {
-  const alreadyliked = totallikes.includes(user.name);
+  const alreadyliked = totallikes.includes(user.username);
   const [liked, unLike] = React.useState(false);
   return (
     <PostLikeDiv>
@@ -15,20 +15,19 @@ const PostLikes = ({ totallikes, postid, user, ...props }) => {
             color="red"
             onClick={() => {
               unLike(false);
-              props.onremoveLike(postid, user.name);
+              props.onremoveLike(postid, user.username);
             }}
           />
         ) : (
           <FaRegHeart
             onClick={() => {
               unLike(true);
-              props.onaddLike(postid, user.name);
+              props.onaddLike(postid, user.username);
             }}
           />
         )}
         <FaRegComment />
       </IconDiv>
-      <hr />
       <TotalLikesDiv>
         {totallikes.length > 0 ? (
           <div>
@@ -40,8 +39,8 @@ const PostLikes = ({ totallikes, postid, user, ...props }) => {
   );
 };
 const maptoDispatch = (dispatch) => ({
-  onaddLike: (postid, username) => dispatch(addLike(postid, username)),
-  onremoveLike: (postid, username) => dispatch(removeLike(postid, username)),
+  onaddLike: (postid, username) => dispatch(addLikeAsync(postid, username)),
+  onremoveLike: (postid, username) => dispatch(removeLikeAsync(postid, username)),
 });
 
 export default connect(null, maptoDispatch)(PostLikes);

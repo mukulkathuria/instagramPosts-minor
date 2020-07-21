@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainDiv = styled.div`
   display: flex;
   justify-content: center;
-  background-color:rgba(var(--b3f,250,250,250),1);
+  background-color: rgba(var(--b3f, 250, 250, 250), 1);
   flex-direction: column;
   align-items: center;
 `;
@@ -15,6 +15,10 @@ export const FormDiv = styled.div`
   margin: 2rem 0;
   width: 25rem;
   border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  .small {
+    font-size: 9px;
+    color:grey;
+  }
   button {
     margin: 1rem 0;
     padding: 8px;
@@ -50,9 +54,9 @@ export const Termscond = styled.div`
 export const FacebookAcc = styled.div`
   font-weight: 600;
   text-align: center;
-  color:grey;
-  button{
-      background-color:rgba(var(--d69,0,149,246),1);
+  color: grey;
+  button {
+    background-color: rgba(var(--d69, 0, 149, 246), 1);
   }
 `;
 

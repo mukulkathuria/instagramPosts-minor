@@ -10,7 +10,7 @@ const AsideBar = ({user}) => {
         <div>
           <img src={avatar} alt="avatar" />
         </div>
-        <div>{user.name}</div>
+        <div>{user.username}</div>
       </UserDiv>
       <SuggestDiv>
         <div className="suggest">

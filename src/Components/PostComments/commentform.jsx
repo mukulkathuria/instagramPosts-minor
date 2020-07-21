@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addComments } from "../../Redux/PostsReducer/posts.actions";
+import { addCommentsAsync } from "../../Redux/PostsReducer/AsyncActions";
 import { FaPaperPlane } from "react-icons/fa";
 import { Inputs, SendBtn } from "./commentform.style";
 
@@ -11,11 +11,8 @@ class CommentForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ comments: "" });
-    this.props.onAddComment(
-      this.props.postid,
-      this.state.comments,
-      this.props.users.name
-    );
+    const { postid, users, onAddComment } = this.props;
+    onAddComment(postid, this.state.comments, users.username);
   };
   handleChange = (event) => {
     let value = event.target.value;
@@ -32,7 +29,7 @@ class CommentForm extends Component {
           placeholder="Add a comment...."
           autoComplete="off"
         />
-        <SendBtn type="submit">
+        <SendBtn type="submit" disabled={this.state.comments.length === 0}>
           <FaPaperPlane />
         </SendBtn>
       </form>
@@ -41,7 +38,7 @@ class CommentForm extends Component {
 }
 const maptoDispatch = (dispatch) => ({
   onAddComment: (postid, value, username) =>
-    dispatch(addComments(postid, value, username)),
+    dispatch(addCommentsAsync(postid, value, username)),
 });
 
 export default connect(null, maptoDispatch)(CommentForm);

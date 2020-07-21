@@ -1,11 +1,11 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 export const initialValues = {
-    email:'',
-    password:''
-}
+  username: "",
+  password: "",
+};
 
-export const validationSchema= Yup.object({
-    email:Yup.string().email().required('Email cant be empty'),
-    password:Yup.string().min(3).required('Password cant be empty')
-})
+export const validationSchema = Yup.object({
+  username: Yup.string().required("Required"),
+  password: Yup.string().min(3).required("Password cant be empty"),
+});

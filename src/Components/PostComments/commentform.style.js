@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const Inputs = styled.input`
-    width:90%;
-    padding:5px;
-    border:0.2px solid;
-    border-radius:8px;
+    width:95%;
+    padding:8px;
+    transition:all 0.3s linear;
+    outline:none;
+    border: 1px solid #DDDDDD;
+    border-radius:5px;
     margin:0.7rem 0;
     :focus{
-        outline:1.2px solid blue;
-        border:none;
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
     }
 `;
 

@@ -13,7 +13,7 @@ const SignUpForm = ({ history, ...props }) => {
   const onSubmitting = async (values, submitprops) => {
     try {
       const user = await registerUser(values);
-      if (user.user) history.push("/posts/" + user.user.name);
+      if (user.user) history.push("/");
     } catch (err) {
       submitprops.setSubmitting(false);
       if (!err.response) {
@@ -36,13 +36,18 @@ const SignUpForm = ({ history, ...props }) => {
             control="input"
             name="name"
             type="text"
+            placeholder="Name"
+          />
+          <FormControl
+            control="input"
+            name="username"
+            type="text"
             placeholder="Username"
           />
           <FormControl
             control="input"
             name="email"
             type="email"
-            label="email"
             placeholder="Email"
             autoComplete="new-password"
           />
@@ -50,9 +55,12 @@ const SignUpForm = ({ history, ...props }) => {
             control="input"
             name="password"
             type="password"
-            label="password"
             placeholder="Password"
           />
+          <div className="small">
+            Make sure it's at least 15 characters OR at least 8 characters
+            including a number and a lowercase letter
+          </div>
           <button
             type="submit"
             disabled={!formik.isValid || formik.isSubmitting}

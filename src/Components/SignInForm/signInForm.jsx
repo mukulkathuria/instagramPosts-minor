@@ -20,7 +20,7 @@ const SignInForm = ({ history, ...props }) => {
         toast.error("Server Error");
         submitprops.resetForm(true);
       } 
-      submitprops.setFieldError("password", err.response.data.error);
+      submitprops.setFieldError("username", err.response.data.error);
     }
   };
   return (
@@ -33,8 +33,8 @@ const SignInForm = ({ history, ...props }) => {
         <Form>
           <FormControl
             control="input"
-            name="email"
-            type="email"
+            name="username"
+            type="text"
             placeholder="username or email"
             autoComplete="new-password"
           />

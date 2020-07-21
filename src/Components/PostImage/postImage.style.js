@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const MainImage = styled.div`
   width: 100%;
-  height: 25rem;
+  height: 35rem;
   margin:0.7rem 0;
   position: relative;
   img {
     width: 100%;
     height: 100%;
+    border-radius:5px;
   }
   svg {
     position: absolute;

@@ -8,13 +8,16 @@ export const InputDiv = styled.div`
   margin: 0.4rem auto;
   input {
     padding: 10px;
-    font-size:1.2em;
+    font-size: 1.2em;
     width: 100%;
-    background-color:#f1f1f1;
-    border: 1px solid rgba(var(--b6a,219,219,219),1);
-    border-radius: 3px;
+    background-color: #f1f1f1;
+    transition: all 0.3s linear;
+    outline: none;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
     :focus {
-      outline: 1.5px solid blue;
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 1px solid rgba(81, 203, 238, 1);
     }
   }
 `;

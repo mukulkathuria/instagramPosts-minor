@@ -2,15 +2,15 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { connect } from "react-redux";
 import { MainImage } from "./postImage.style";
-import { addLike } from "../../Redux/PostsReducer/posts.actions";
+import { addLikeAsync } from "../../Redux/PostsReducer/AsyncActions";
 
 const PostImage = ({ image, user, likes, postid, onaddLike }) => {
   const [show, hide] = React.useState(false);
 
   const handleClick = () => {
-    const alreadyliked = likes.includes(user.name);
+    const alreadyliked = likes.includes(user.username);
     if (!alreadyliked) {
-      onaddLike(postid,user.name);
+      onaddLike(postid, user.username);
     }
     hide(true);
     setTimeout(() => {
@@ -25,6 +25,6 @@ const PostImage = ({ image, user, likes, postid, onaddLike }) => {
   );
 };
 const maptoDispatch = (dispatch) => ({
-  onaddLike: (postid, username) => dispatch(addLike(postid, username)),
+  onaddLike: (postid, username) => dispatch(addLikeAsync(postid, username)),
 });
-export default connect(null,maptoDispatch)(PostImage);
+export default connect(null, maptoDispatch)(PostImage);

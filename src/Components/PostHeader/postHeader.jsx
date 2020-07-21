@@ -1,11 +1,15 @@
 import React from "react";
-import { Heading } from "./postHeader.style";
+import { Heading, HeadingImg } from "./postHeader.style";
+import { BsThreeDots } from "react-icons/bs";
 
 const PostHeader = ({ head, image }) => {
   return (
     <Heading>
-      <img src={image} alt="" />
-      <div>{head}</div>
+      <HeadingImg>
+        <img src={image} alt="" />
+        <div>{head}</div>
+      </HeadingImg>
+      <BsThreeDots />
     </Heading>
   );
 };
