@@ -1,6 +1,6 @@
 import http from "./http.services";
 import { authurl } from "../Data/baseUrl.json";
-import store from "../Redux/root.redux";
+import { store } from "../Redux/root.redux";
 import { addUser } from "../Redux/AuthReducer/userReducerActions";
 const Url = authurl + "/login";
 

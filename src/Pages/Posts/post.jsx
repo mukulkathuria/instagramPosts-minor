@@ -11,7 +11,6 @@ import {
   Post,
   CommentInput,
   MainDiv,
-  DivContainer,
   PostsPage,
 } from "./postPage.style";
 import PostsPageHeader from "../../Components/PostsHeader/postPageHeader";
@@ -23,12 +22,10 @@ const Posts = ({ posts, user, getCollection, ...props }) => {
     document.title = "Instagram";
     getCollection();
   }, [getCollection]);
-  console.log('Posts hegi aa',posts);
   return (
     <PostsPage>
       <PostsPageHeader user={user} />
       <MainDiv>
-        <DivContainer>
           <PostsDiv>
             <Suspense fallback={<Spinner />}>
               {posts &&
@@ -59,8 +56,7 @@ const Posts = ({ posts, user, getCollection, ...props }) => {
             </Suspense>
           </PostsDiv>
           <AsideBar user={user} />
-        </DivContainer>
-      </MainDiv>
+        </MainDiv>
     </PostsPage>
   );
 };

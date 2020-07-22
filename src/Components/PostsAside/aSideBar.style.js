@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const AsideMain = styled.div`
     position:fixed;
-    width:20rem;
+    max-width:20rem;
+    height:100%;
     z-index:1;
-    top:15%;
+    top:7rem;
     right:15%;
-    margin:2rem 0;
     div{
         margin:0.2em 0;
     }
@@ -14,9 +14,27 @@ export const AsideMain = styled.div`
 export const UserDiv = styled.div`
     display:flex;
     img{
-        height:35px;
-        width:35px;
+        height:50px;
+        width:50px;
         margin-right:8px;
+    }
+`;
+export const UserDetail = styled.div`
+    display:flex;
+    flex-direction:column;
+    margin:0;
+    padding:0;
+    line-height:1.2;
+    font-size:0.93em;
+    .username{
+        font-weight:600;
+        &:hover{
+            color:blue;
+        }
+    }
+    .name{
+        font-size:0.9em;
+        color:grey;
     }
 `;
 export const SuggestDiv = styled.div`
@@ -31,6 +49,7 @@ export const SuggestDiv = styled.div`
     }
     ul{
         list-style:none;
+        padding:10px;
     }
     li{
         line-height:1.6;
@@ -40,12 +59,13 @@ export const TermsAndCond = styled.div`
     font-size:0.7em;
     color:grey;
     text-align:center;
+    word-wrap:break-word;
     width:100%;
     a{
         text-decoration:none;
         color:inherit;
         font-weight:600;
-        margin: 0 2px;
+        margin: 0 5px;
         &:hover{
             color:blue;
         }

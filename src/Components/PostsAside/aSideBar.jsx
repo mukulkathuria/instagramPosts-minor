@@ -1,16 +1,25 @@
 import React from "react";
-import { AsideMain, UserDiv, SuggestDiv, TermsAndCond } from "./aSideBar.style";
+import {
+  AsideMain,
+  UserDiv,
+  SuggestDiv,
+  TermsAndCond,
+  UserDetail,
+} from "./aSideBar.style";
 import avatar from "../../images/man.svg";
 import { Link } from "react-router-dom";
 
-const AsideBar = ({user}) => {
+const AsideBar = ({ user }) => {
   return (
     <AsideMain>
       <UserDiv>
         <div>
           <img src={avatar} alt="avatar" />
         </div>
-        <div>{user.username}</div>
+        <UserDetail>
+          <div className="username">{user.username}</div>
+          <div className="name">{user.name}</div>
+        </UserDetail>
       </UserDiv>
       <SuggestDiv>
         <div className="suggest">
