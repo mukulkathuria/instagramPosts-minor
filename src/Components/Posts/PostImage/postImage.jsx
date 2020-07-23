@@ -2,7 +2,7 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { connect } from "react-redux";
 import { MainImage } from "./postImage.style";
-import { addLikeAsync } from "../../Redux/PostsReducer/AsyncActions";
+import { addLikeAsync } from "../../../Redux/PostsReducer/AsyncActions";
 
 const PostImage = ({ image, user, likes, postid, onaddLike }) => {
   const [show, hide] = React.useState(false);

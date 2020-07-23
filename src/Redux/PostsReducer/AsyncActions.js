@@ -4,7 +4,7 @@ import {
   addLike,
   removeLike,
 } from "./posts.actions";
-import axios from "axios";
+import http from "../../services/http.services";
 import { toast } from "react-toastify";
 import { postsediturl } from "../../Data/baseUrl.json";
 
@@ -16,7 +16,7 @@ export const addCommentsAsync = (postid, value, username) => {
   };
   return async (dispatch) => {
     try {
-      const { data: commid } = await axios.post(
+      const { data: commid } = await http.post(
         postsediturl + "addcomments=nothing",
         values
       );
@@ -34,7 +34,7 @@ export const removeCommentsAsync = (postid, commentid) => {
   };
   return async (dispatch) => {
     try {
-      await axios.post(postsediturl + "removecomments=nothing", values);
+      await http.post(postsediturl + "removecomments=nothing", values);
       dispatch(removeComments(postid, commentid));
     } catch (error) {
       toast.error("Server Error");
@@ -49,7 +49,7 @@ export const addLikeAsync = (postid, username) => {
   };
   return async (dispatch) => {
     try {
-      await axios.post(postsediturl + "addLike=nothing", values);
+      await http.post(postsediturl + "addLike=nothing", values);
       dispatch(addLike(postid, username));
     } catch (err) {
       toast.error("Server Error");
@@ -64,7 +64,7 @@ export const removeLikeAsync = (postid, username) => {
   };
   return async (dispatch) => {
     try {
-      await axios.post(postsediturl + "removeLike=nothing", values);
+      await http.post(postsediturl + "removeLike=nothing", values);
       dispatch(removeLike(postid, username));
     } catch (err) {
       toast.error("Server Error");

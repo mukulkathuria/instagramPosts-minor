@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Header,
   DivContainer,
@@ -9,18 +10,20 @@ import {
 } from "./postPageHeader.style";
 import { FaRegHeart, FaRegCompass } from "react-icons/fa";
 import { BsHouseDoorFill, BsCursor } from "react-icons/bs";
-import imghead from "../../images/instagram-heading.jpg";
-import avatar from "../../images/man.svg";
+import imghead from "../../../images/instagram-heading.jpg";
+import avatar from "../../../images/man.svg";
 import AccountDetails from "./AccountDetails/accountDetails";
 
-const PostsPageHeader = ({user}) => {
+const PostsPageHeader = ({ user }) => {
   const [showAcc, hideAcc] = React.useState(false);
 
   return (
     <Header>
       <DivContainer>
         <Logo>
-          <img src={imghead} alt="logo" />
+          <Link to="/">
+            <img src={imghead} alt="logo" />
+          </Link>
         </Logo>
         <SearchDiv>
           <input type="text" placeholder="Search" />

@@ -8,17 +8,17 @@ import SignUpPage from "./Pages/SignUpPage/signUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const App = ({ user, ...props }) => {
+const App = ({ user }) => {
   return (
     <BrowserRouter>
       <ToastContainer />
       <Switch>
-        <Route exact path="/" render={(props) =>{
+        <Route exact path="/accounts/login" component={SignInPage} />
+        <Route exact path="/accounts/emailsignup" component={SignUpPage} />
+        <Route path="/" render={(props) =>{
           if(user) return <Posts user={user} {...props} />
           return <HomePage {...props} />
         }} />
-        <Route exact path="/accounts/login" component={SignInPage} />
-        <Route exact path="/accounts/emailsignup" component={SignUpPage} />
       </Switch>
     </BrowserRouter>
   );

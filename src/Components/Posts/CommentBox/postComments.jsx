@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeCommentsAsync } from "../../Redux/PostsReducer/AsyncActions";
+import { removeCommentsAsync } from "../../../Redux/PostsReducer/AsyncActions";
 import { RecentComments, Comments, CommentFlex } from "./postComment.style";
 import { BsFillTrashFill } from "react-icons/bs";
 

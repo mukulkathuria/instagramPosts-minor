@@ -6,7 +6,7 @@ import {
   TermsAndCond,
   UserDetail,
 } from "./aSideBar.style";
-import avatar from "../../images/man.svg";
+import avatar from "../../../images/man.svg";
 import { Link } from "react-router-dom";
 
 const AsideBar = ({ user }) => {

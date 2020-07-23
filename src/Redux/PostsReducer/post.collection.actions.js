@@ -1,5 +1,5 @@
 import {  actionType } from "./postsActionTypes";
-import axios from "axios";
+import http from "../../services/http.services";
 import { baseurl } from "../../Data/baseUrl.json";
 
 const Url = baseurl + "/posts";
@@ -22,7 +22,7 @@ export const fetchCollectionAsync = () => {
   return async (dispatch) => {
     dispatch(fetchCollectionStart());
     try {
-      const { data } = await axios.get(Url);
+      const { data } = await http.get(Url);
       console.log(data);
       dispatch(fetchCollectionSuccess(data));
     } catch (err) {

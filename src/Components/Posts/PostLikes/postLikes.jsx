@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addLikeAsync, removeLikeAsync } from "../../Redux/PostsReducer/AsyncActions";
+import { addLikeAsync, removeLikeAsync } from "../../../Redux/PostsReducer/AsyncActions";
 import { FaRegComment, FaRegHeart, FaHeart } from "react-icons/fa";
 import { IconDiv, PostLikeDiv, TotalLikesDiv } from "./postlikes.style";
 
