@@ -1,5 +1,5 @@
 import { actionTypes } from "./userReduceractionTypes";
-import { verifyUser } from "./userReducerActions";
+
 
 const initialValue = {
   user: null,
@@ -9,7 +9,7 @@ const userReducer = (state = initialValue, action) => {
     case actionTypes.addUser:
       return {
         ...state,
-        user: verifyUser(action.token),
+        user: action.token,
       };
       case actionTypes.removeUser:
         return{

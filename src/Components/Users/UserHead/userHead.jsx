@@ -14,9 +14,9 @@ const UserHead = ({user}) => {
           <button>Edit Profile</button>
         </div>
         <div className="follower">
-          <div>0 Post</div>
-          <div>1 follower</div>
-          <div>10 following</div>
+          <div>{user.Posts.length} Posts</div>
+          <div>{user.followers.length} followers</div>
+          <div>{user.follows.length} following</div>
         </div>
         <div className="name">{user.name}</div>
       </HeaderUser>

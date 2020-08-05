@@ -9,9 +9,11 @@ import ProfilePosts from "../../Components/Users/UserPosts/userPosts";
 import { DivContainer, PostsDiv, MainDiv } from "./user.style";
 
 const UserPage = ({ user, match: { url } }) => {
+
   React.useEffect(() => {
     document.title = user.name + "  (@ " + user.username + ")  . Instagram";
   }, [user]);
+
 
   return (
     <MainDiv>
@@ -23,7 +25,7 @@ const UserPage = ({ user, match: { url } }) => {
             <Route exact path={`${url}/channel`} render={() => <UserIGTV />} />
             <Route exact path={`${url}/saved`} render={() => <SavedPosts />} />
             <Route exact path={`${url}/tagged`} render={() => <UserTagged />} />
-            <Route exact path={`${url}`} render={() => <ProfilePosts />} />
+            <Route exact path={`${url}`} render={() => <ProfilePosts posts={user.Posts} />} />
           </Switch>
         </PostsDiv>
       </DivContainer>

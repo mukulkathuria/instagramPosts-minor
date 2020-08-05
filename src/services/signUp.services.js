@@ -5,8 +5,8 @@ import { addUser } from "../Redux/AuthReducer/userReducerActions";
 const Url = authurl + "/register";
 
 export const registerUser = async (values) => {
-  const { headers } = await http.post(Url, values);
-  await store.dispatch(addUser(headers["x-auth-token"]));
+  const { data } = await http.post(Url, values);
+  await store.dispatch(addUser(data));
   const { user } = await store.getState();
   return user;
 };

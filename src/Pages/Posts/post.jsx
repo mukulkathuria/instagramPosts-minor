@@ -6,11 +6,22 @@ import Spinner from "../../Components/Spinner/spinner";
 import PostsPageHeader from "../../Components/Posts/PostsHeader/postPageHeader";
 import Dashboard from "../Dashboard/dashboard";
 import UserPage from "../User/user";
+import getUser from "../../services/users.services";
 
-const Posts = ({ posts, user, getCollection }) => {
+const Posts = ({ posts, getCollection }) => {
+  const [user, changeuser] = React.useState(null);
+
   React.useEffect(() => {
-    getCollection();
+    const userinfo = async () => {
+    await getCollection();
+      const result =await getUser();
+      changeuser(result);
+    }
+    userinfo();
   }, [getCollection]);
+   
+  if(!user) return <Spinner />
+ 
   return (
     <Suspense fallback={<Spinner />}>
       <PostsPageHeader user={user} />
@@ -33,8 +44,7 @@ const Posts = ({ posts, user, getCollection }) => {
   );
 };
 const maptostate = (state) => ({
-  posts: state.posts.post,
-  user: state.user.user,
+  posts: state.posts.post
 });
 const maptoDispatch = (dispatch) => ({
   getCollection: () => dispatch(fetchCollectionAsync()),

@@ -7,8 +7,11 @@ import SignInPage from "./Pages/SignInPage/signIn";
 import SignUpPage from "./Pages/SignUpPage/signUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import verifyUser from "./Validations/tokenverify";
 
 const App = ({ user }) => {
+  user = verifyUser(user);
+
   return (
     <BrowserRouter>
       <ToastContainer />
@@ -16,7 +19,7 @@ const App = ({ user }) => {
         <Route exact path="/accounts/login" component={SignInPage} />
         <Route exact path="/accounts/emailsignup" component={SignUpPage} />
         <Route path="/" render={(props) =>{
-          if(user) return <Posts user={user} {...props} />
+          if(user) return <Posts {...props} />
           return <HomePage {...props} />
         }} />
       </Switch>

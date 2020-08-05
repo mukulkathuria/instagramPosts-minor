@@ -1,14 +1,20 @@
 import React from "react";
-import {MainDiv,Photogrid} from "./userposts.style";
+import { MainDiv, Photogrid, NullSaved } from "./userposts.style";
 import grid from "../../../images/instagridphoto.jpg";
 
-const ProfilePosts  = () =>{
-    return(
-        <MainDiv>
-            <Photogrid>
-                <img src={grid} alt="gridphoto"/>
-            </Photogrid>
-        </MainDiv>
-    );
-}
+const ProfilePosts = ({ posts }) => {
+  return (
+    <MainDiv>
+      {posts.length === 0 ? (
+        <NullSaved>
+          <div>
+            <img src={grid} alt="gridphoto" />
+          </div>
+        </NullSaved>
+      ) : (
+        <Photogrid />
+      )}
+    </MainDiv>
+  );
+};
 export default ProfilePosts;
