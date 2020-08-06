@@ -16,6 +16,10 @@ export const DivContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  a{
+    text-decoration:none;
+    color:inherit;
+  }
 `;
 export const Logo = styled.div`
   width: 6rem;

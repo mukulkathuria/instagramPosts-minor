@@ -23,7 +23,6 @@ export const fetchCollectionAsync = () => {
     dispatch(fetchCollectionStart());
     try {
       const { data } = await http.get(Url);
-      console.log(data);
       dispatch(fetchCollectionSuccess(data));
     } catch (err) {
       dispatch(fetchCollectionfailure(err.response.data));

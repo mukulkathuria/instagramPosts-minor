@@ -8,23 +8,22 @@ import Dashboard from "../Dashboard/dashboard";
 import UserPage from "../User/user";
 import getUser from "../../services/users.services";
 
-const Posts = ({ posts, getCollection }) => {
+const Posts = ({ posts, getCollection ,match}) => {
   const [user, changeuser] = React.useState(null);
-
+  
   React.useEffect(() => {
     const userinfo = async () => {
-    await getCollection();
-      const result =await getUser();
-      changeuser(result);
-    }
+        await getCollection();
+        const result = await getUser();
+        changeuser(result);
+    };
     userinfo();
-  }, [getCollection]);
-   
-  if(!user) return <Spinner />
- 
+  },[getCollection]);
+
+  if (!user) return <Spinner />;
   return (
     <Suspense fallback={<Spinner />}>
-      <PostsPageHeader user={user} />
+      <PostsPageHeader user={user} match={match} />
       <Switch>
         <Route
           path="/:userid"
@@ -44,7 +43,7 @@ const Posts = ({ posts, getCollection }) => {
   );
 };
 const maptostate = (state) => ({
-  posts: state.posts.post
+  posts: state.posts.post,
 });
 const maptoDispatch = (dispatch) => ({
   getCollection: () => dispatch(fetchCollectionAsync()),
