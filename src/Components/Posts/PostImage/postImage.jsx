@@ -18,7 +18,7 @@ const PostImage = ({ image, user, likes, postid, onaddLike ,usershow}) => {
       hide(false);
     }, 1000);
   };
-  if(image[0] === "P"){
+  if(image[0] !== "h"){
     image=baseurl + "/" +image;
   }
   return (

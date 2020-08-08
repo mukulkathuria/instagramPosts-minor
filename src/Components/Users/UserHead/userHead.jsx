@@ -1,12 +1,19 @@
 import React from "react";
-import avatar from "../../../images/man.svg";
-import { Header, HeaderImg, HeaderUser } from "./userHead.style";
+import { Header, HeaderImg, HeaderUser, ModalDiv } from "./userHead.style";
+import Modal from "../../Modal/modal";
+import UploadProfile from "./Uploads/uploadProfileImg";
+import { baseurl } from "../../../Data/baseUrl.json";
 
-const UserHead = ({user}) => {
+const UserHead = ({ user }) => {
+  const [urlmodal, hideModal] = React.useState(false);
   return (
     <Header>
       <HeaderImg>
-        <img src={avatar} alt="avatar" />
+        <img
+          src={`${baseurl + "/" + user.profileImg}`}
+          alt="avatar"
+          onClick={() => hideModal(true)}
+        />
       </HeaderImg>
       <HeaderUser>
         <div className="username">
@@ -20,6 +27,14 @@ const UserHead = ({user}) => {
         </div>
         <div className="name">{user.name}</div>
       </HeaderUser>
+      {urlmodal && (
+        <Modal show={urlmodal} modalClose={() => hideModal(!urlmodal)}>
+          <ModalDiv>
+            <div className="data">Want to change your Profile Image</div>
+            <UploadProfile />
+          </ModalDiv>
+        </Modal>
+      )}
     </Header>
   );
 };

@@ -11,8 +11,8 @@ import {
 import { FaRegHeart, FaRegCompass } from "react-icons/fa";
 import { BsHouseDoorFill, BsCursor ,BsHouseDoor } from "react-icons/bs";
 import imghead from "../../../images/instagram-heading.jpg";
-import avatar from "../../../images/man.svg";
 import AccountDetails from "./AccountDetails/accountDetails";
+import { baseurl } from "../../../Data/baseUrl.json";
 
 const PostsPageHeader = ({ user ,match}) => {
   const [showAcc, hideAcc] = React.useState(false);
@@ -35,7 +35,7 @@ const PostsPageHeader = ({ user ,match}) => {
           <FaRegCompass />
           <FaRegHeart />
           <Userinfo onClick={() => hideAcc(!showAcc)}>
-            <img src={avatar} alt="avatar" />
+            <img src={`${baseurl+"/"+user.profileImg}`} alt="avatar" />
             {showAcc && <AccountDetails user={user} />}
           </Userinfo>
         </Icons>

@@ -6,15 +6,15 @@ import {
   TermsAndCond,
   UserDetail,
 } from "./aSideBar.style";
-import avatar from "../../../images/man.svg";
 import { Link } from "react-router-dom";
+import { baseurl } from "../../../Data/baseUrl.json";
 
 const AsideBar = ({ user }) => {
   return (
     <AsideMain>
       <UserDiv>
         <div>
-          <img src={avatar} alt="avatar" />
+          <img src={`${baseurl+"/"+user.profileImg}`} alt="avatar" />
         </div>
         <UserDetail>
           <div className="username">{user.username}</div>

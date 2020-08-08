@@ -48,7 +48,7 @@ const ProfilePosts = ({ posts ,user}) => {
       )}
       {show && (
         <Modal show={show} modalClose={() => hide(!show)}>
-          <AlbumUpload />
+          <AlbumUpload user={user} />
         </Modal>
       )}
       {showAlbum && (

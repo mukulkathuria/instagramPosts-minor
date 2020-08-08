@@ -9,7 +9,9 @@ export const LeftContainer = styled.div`
 export const RightContainer = styled.div`
   width: 15rem;
 `;
-export const Header = styled.div``;
+export const Header = styled.div`
+margin-bottom:10px;
+`;
 export const Likes = styled.div``;
 export const Comments = styled.div`
 input {

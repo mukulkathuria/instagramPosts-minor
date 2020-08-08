@@ -32,7 +32,8 @@ class AlbumUpload extends React.Component {
     this.setState({ isSubmitting: true });
     if (validateForm(this.state)) {
       const { desc } = this.state;
-      const data = await UploadPhoto(desc, this.PhotoInput);
+      const {user:{profileImg}} = this.props;
+      const data = await UploadPhoto(desc, this.PhotoInput,profileImg);
       if (data === "Saved") window.location.reload();
       this.setState({ isSubmitting: false });
     } else {

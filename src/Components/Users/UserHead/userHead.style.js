@@ -6,15 +6,23 @@ export const Header = styled.div`
   display: flex;
 `;
 export const HeaderImg = styled.div`
-  height: 140px;
-  width: 140px;
+  height: 150px;
+  width: 150px;
   margin:0 5rem;
   img {
-    height: 140px;
-    width: 140px;
+    height: 150px;
+    width: 150px;
+    cursor:pointer;
+    border-radius:50%;
   }
 `;
 
+export const ModalDiv = styled.div`
+  .data{
+    text-align:center;
+    margin-bottom:1rem;
+  }
+`;
 
 export const HeaderUser = styled.div`
   display: flex;

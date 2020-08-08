@@ -56,6 +56,9 @@ export const Icons = styled.div`
 export const Userinfo = styled.span`
   position: relative;
   cursor: pointer;
+  img{
+    border-radius:50%;
+  }
 `;
 export const AccountDetails = styled.div`
   position: absolute;

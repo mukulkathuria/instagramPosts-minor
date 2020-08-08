@@ -3,14 +3,16 @@ import { Heading, HeadingImg, ModalOption } from "./postHeader.style";
 import Modal from "../../Modal/modal";
 import { BsThreeDots } from "react-icons/bs";
 import deletePost from "../../../services/deleteposts.services";
+import {baseurl} from "../../../Data/baseUrl.json";
 
 const PostHeader = ({ head, image ,postid}) => {
   const [showoption, hideOption] = React.useState(false);
   const handleDelete =  async(id) =>{
     const data =await deletePost(id);
-    console.log(data);
     if(data === "removed") window.location.reload();
   }
+  if(image[0] !== "h") image=baseurl+"/"+image;
+  
   return (
     <Heading>
       <HeadingImg>

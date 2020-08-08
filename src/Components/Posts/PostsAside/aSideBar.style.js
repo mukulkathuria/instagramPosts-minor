@@ -17,6 +17,7 @@ export const UserDiv = styled.div`
         height:50px;
         width:50px;
         margin-right:8px;
+        border-radius:50%;
     }
 `;
 export const UserDetail = styled.div`
