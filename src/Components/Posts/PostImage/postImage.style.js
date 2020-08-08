@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MainImage = styled.div`
   width: 100%;
-  height: 35rem;
-  margin:0.7rem 0;
+  height:${props => props.show ? "30rem" : "35rem"}; ;
+  margin:${props => props.show ? "0" : "0.7em 0"};
   position: relative;
   img {
     width: 100%;

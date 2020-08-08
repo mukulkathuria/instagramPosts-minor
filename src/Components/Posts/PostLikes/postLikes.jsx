@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addLikeAsync, removeLikeAsync } from "../../../Redux/PostsReducer/AsyncActions";
 import { FaRegComment, FaRegHeart, FaHeart } from "react-icons/fa";
-import { IconDiv, PostLikeDiv, TotalLikesDiv } from "./postlikes.style";
+import { IconDiv, PostLikeDiv, TotalLikesDiv ,Caption} from "./postlikes.style";
 
 const PostLikes = ({ totallikes, postid, user, ...props }) => {
   const alreadyliked = totallikes.includes(user.username);
@@ -35,6 +35,10 @@ const PostLikes = ({ totallikes, postid, user, ...props }) => {
           </div>
         ) : null}
       </TotalLikesDiv>
+      <Caption>
+        <strong>{props.postuser}</strong>
+        <div>{props.caption}</div>
+      </Caption>
     </PostLikeDiv>
   );
 };

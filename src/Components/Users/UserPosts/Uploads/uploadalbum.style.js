@@ -36,3 +36,18 @@ export const Errors = styled.span`
   text-align:left;
   float:left;
 `;
+export const Buttonscs = styled.div`
+    text-align:center;
+    button{
+      width:25%;
+      background-color:#6699ff;
+      padding:5px;
+      border-radius:5px;
+      cursor:pointer;
+      border:none;
+      :disabled{
+        background-color:lightblue;
+        cursor:default;
+      }
+    }
+`;

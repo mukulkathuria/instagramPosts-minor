@@ -5,7 +5,7 @@ export const validateForm = ({ errors, ...res }) => {
   Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
 
   for (let key in res) {
-    if (key === "uploadPercentage") {
+    if (key === "uploadPercentage" || key === "isSubmitting") {
       key++;
     } else {
       if (res[key].length === 0) valid = false;
@@ -32,7 +32,7 @@ export const changeErrors = (error, name, value, targets) => {
 
 export const errorsForm = ({ errors, ...res }) => {
   for (let key in res) {
-    if (key === "uploadPercentage") {
+    if (key === "uploadPercentage" || key === "isSubmitting") {
       key++;
     } else {
       if (res[key].length === 0) {

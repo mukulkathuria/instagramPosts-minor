@@ -4,7 +4,8 @@ import {
   changeErrors,
   errorsForm,
 } from "./Validations/validateform";
-import { Form, MainDiv ,Errors} from "./uploadalbum.style";
+import { Form, MainDiv, Errors, Buttonscs } from "./uploadalbum.style";
+import { UploadPhoto } from "../../../../services/uploadAlbum.services";
 
 class AlbumUpload extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class AlbumUpload extends React.Component {
     this.state = {
       file: "",
       desc: "",
-      uploadPercentage: "",
+      isSubmitting: false,
       errors: {
         file: "",
         desc: "",
@@ -24,21 +25,25 @@ class AlbumUpload extends React.Component {
     const { value, name } = e.target;
     let { errors } = this.state;
     changeErrors(errors, name, value, e.target);
-    this.setState({ errors, [name]: value.trim() });
+    this.setState({ errors, [name]: value });
   };
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
+    this.setState({ isSubmitting: true });
     if (validateForm(this.state)) {
-      console.log(this.state.desc,this.PhotoInput);
+      const { desc } = this.state;
+      const data = await UploadPhoto(desc, this.PhotoInput);
+      if (data === "Saved") window.location.reload();
+      this.setState({ isSubmitting: false });
     } else {
       const { errors } = this.state;
       errorsForm(this.state);
-      this.setState({ errors });
+      this.setState({ errors, isSubmitting: false });
     }
   };
-  render() {
-    const {errors} = this.state;
 
+  render() {
+    const { errors, file, desc, isSubmitting } = this.state;
     return (
       <MainDiv>
         Please Upload Your Photo
@@ -51,7 +56,7 @@ class AlbumUpload extends React.Component {
               accept="image/jpeg , image/png"
               onChange={this.handleChange}
             />
-            {errors.file.length>0 && <Errors>{errors.file}</Errors>}
+            {errors.file.length > 0 && <Errors>{errors.file}</Errors>}
           </div>
           <div>
             <textarea
@@ -62,7 +67,20 @@ class AlbumUpload extends React.Component {
               placeholder="Enter Caption.."
             />
           </div>
-          {errors.desc.length>0 && <Errors>{errors.desc}</Errors>}
+          {errors.desc.length > 0 && <Errors>{errors.desc}</Errors>}
+          <Buttonscs>
+            <button
+              type="submit"
+              disabled={
+                file.length === 0 ||
+                desc.length === 0 ||
+                errors.file.length > 0 ||
+                errors.desc.length > 0
+              }
+            >
+              {isSubmitting ? "Posting.." : "Post"}
+            </button>
+          </Buttonscs>
         </Form>
       </MainDiv>
     );
