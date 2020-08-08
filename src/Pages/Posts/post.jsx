@@ -7,24 +7,30 @@ import PostsPageHeader from "../../Components/Posts/PostsHeader/postPageHeader";
 import Dashboard from "../Dashboard/dashboard";
 import UserPage from "../User/user";
 import getUser from "../../services/users.services";
+import ChatBox from "../../Components/Chatbox/chatbox";
 
-const Posts = ({ posts, getCollection ,match}) => {
+const Posts = ({ posts, getCollection, match, location }) => {
   const [user, changeuser] = React.useState(null);
-  
+
   React.useEffect(() => {
     const userinfo = async () => {
-        await getCollection();
-        const result = await getUser();
-        changeuser(result);
+      await getCollection();
+      const result = await getUser();
+      changeuser(result);
     };
     userinfo();
-  },[getCollection]);
+  }, [getCollection]);
 
   if (!user) return <Spinner />;
   return (
     <Suspense fallback={<Spinner />}>
-      <PostsPageHeader user={user} match={match} />
+      <PostsPageHeader user={user} match={match} location={location} />
       <Switch>
+        <Route
+          exact
+          path="/direct/inbox"
+          render={(props) => <ChatBox {...props} />}
+        />
         <Route
           path="/:userid"
           render={(props) => {

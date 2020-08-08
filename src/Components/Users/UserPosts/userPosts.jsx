@@ -13,7 +13,7 @@ import Modal from "../../Modal/modal";
 import { baseurl } from "../../../Data/baseUrl.json";
 import ShowUserPost from "./Posts/showPosts";
 
-const ProfilePosts = ({ posts ,user}) => {
+const ProfilePosts = ({ posts, user }) => {
   const [show, hide] = React.useState(false);
   const [showAlbum, hideAlbum] = React.useState(false);
   const [userPost, changePost] = React.useState(null);
@@ -25,7 +25,10 @@ const ProfilePosts = ({ posts ,user}) => {
             <img src={grid} alt="gridphoto" />
           </div>
           <Uploadphoto onClick={() => hide(true)}>
-            <BsUpload />
+            <div className="absolute">
+              <BsUpload />
+              <div>Upload your photo</div>
+            </div>
           </Uploadphoto>
         </NullSaved>
       ) : (
@@ -42,7 +45,10 @@ const ProfilePosts = ({ posts ,user}) => {
             </GridItems>
           ))}
           <Uploadphoto onClick={() => hide(true)}>
-            <BsUpload />
+            <div className="absolute">
+              <BsUpload />
+              <div>Upload your photo</div>
+            </div>
           </Uploadphoto>
         </Photogrid>
       )}

@@ -9,12 +9,17 @@ import {
   Userinfo,
 } from "./postPageHeader.style";
 import { FaRegHeart, FaRegCompass } from "react-icons/fa";
-import { BsHouseDoorFill, BsCursor ,BsHouseDoor } from "react-icons/bs";
+import {
+  BsHouseDoorFill,
+  BsCursor,
+  BsHouseDoor,
+  BsCursorFill,
+} from "react-icons/bs";
 import imghead from "../../../images/instagram-heading.jpg";
 import AccountDetails from "./AccountDetails/accountDetails";
 import { baseurl } from "../../../Data/baseUrl.json";
 
-const PostsPageHeader = ({ user ,match}) => {
+const PostsPageHeader = ({ user, match, location }) => {
   const [showAcc, hideAcc] = React.useState(false);
   return (
     <Header>
@@ -31,11 +36,17 @@ const PostsPageHeader = ({ user ,match}) => {
           <Link to="/">
             {match.isExact ? <BsHouseDoorFill /> : <BsHouseDoor />}
           </Link>
-          <BsCursor />
+          <Link to="/direct/inbox">
+            {location.pathname === "/direct/inbox" ? (
+              <BsCursorFill />
+            ) : (
+              <BsCursor />
+            )}
+          </Link>
           <FaRegCompass />
           <FaRegHeart />
           <Userinfo onClick={() => hideAcc(!showAcc)}>
-            <img src={`${baseurl+"/"+user.profileImg}`} alt="avatar" />
+            <img src={`${baseurl + "/" + user.profileImg}`} alt="avatar" />
             {showAcc && <AccountDetails user={user} />}
           </Userinfo>
         </Icons>

@@ -36,11 +36,15 @@ export const Uploadphoto = styled.div`
   background-color:#f1f1f1;
   position:relative;
   cursor:pointer;
-  svg{
-    font-size:3rem;
+  font-size:0.7em;
+  text-align:center;
+  .absolute{
     position:absolute;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%)
+  }
+  svg{
+    font-size:3rem;
   }
 `;
