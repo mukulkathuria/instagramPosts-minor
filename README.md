@@ -1,14 +1,28 @@
-### Project desription
-Its a project of mimic of instagram post where you like comment 
-the post just like in reacl instagram post or instagram website.
+# Project desription
+Its a project of mimic of instagram Website where you like comment Register User and Login follow and Add/Delete Posts just like in real instagram post or instagram website.
 
-I use the Static data in earlier but the functionalities of add likes and add comment according to login user it will detect the like by their username and comment also
+Its Full Stack project having integrated with Restfull API **Node with ExpressAPI** And Database I use MongoDB
 
-Its Full Stack project with backend connected with Express API and Mongodb as a database it fetch the data from backend and then use the Json Web Token to authorize the User then it will Login to the instagram(MyProject)
-
-if you wanna use this project you can simply connect to backend with your Mongodb and see what will happen 
+To use Full Project you can see My Backend Code as well [Instagram Backend](https://github.com/mukulkathuria/instagramPost-Backend) 
 
 
-Its full Stack project where i will add login function ,So the person add likes with perticular user and comment by the user 
+## Usage
 
-You will see that in other few Days
+### instructions
+To install all the packages
+
+```
+npm install
+yarn add
+
+npm start
+```
+
+To use of Full Project : **Install Both Project Packages**
+  -Integrate with MongoDB
+  -Add .env file to add Private Link and keys 
+  -Add your Dummy Data in backend and Enjoy your Own Instagram
+  -follow up this project i will add chatbox where you can chat and follow the posts of your following User 
+  -I will add Suggestion notification and many more thing
+
+**Yipee You made your Own Instagram**
