@@ -11,7 +11,6 @@ const ChatBox = () => {
   React.useEffect(() => {
     document.title = "Inbox . Direct";
   }, []);
-
   return (
     <MainDiv>
       <DivContainer>

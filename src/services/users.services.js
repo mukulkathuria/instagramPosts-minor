@@ -18,7 +18,9 @@ const getUser = async () => {
     });
     return data;
   } catch (err) {
+    console.warn(err);
     store.dispatch(removeUser());
+    throw err;
   }
 };
 

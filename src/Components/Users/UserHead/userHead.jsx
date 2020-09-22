@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Header, HeaderImg, HeaderUser, ModalDiv } from "./userHead.style";
 import Modal from "../../Modal/modal";
 import UploadProfile from "./Uploads/uploadProfileImg";
@@ -18,7 +19,9 @@ const UserHead = ({ user }) => {
       <HeaderUser>
         <div className="username">
           {user.username}
-          <button>Edit Profile</button>
+          <Link to="/account">
+            <button>Edit Profile</button>
+          </Link>
         </div>
         <div className="follower">
           <div>{user.Posts.length} Posts</div>
