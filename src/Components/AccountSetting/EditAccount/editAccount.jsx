@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import manSvg from "../../../images/man.svg";
-import { MainDiv, UserDiv , UserImg , UserInfo } from "./editAccount.style";
+import ChangeAccountPass from "../ChangePassword/changeAccPass";
+import {
+  MainDiv,
+  UserDiv,
+  UserImg,
+  UserInfo,
+  FormDiv,
+} from "./editAccount.style";
+import EditAccountForm from "./EditForm/editAccountForm";
 
-const EditAccount = () => {
+const EditAccount = ({ Pass }) => {
+  useEffect(() => {
+    document.title = "Edit Profile .Instagram";
+  }, []);
   return (
     <MainDiv>
       <UserDiv>
@@ -11,9 +22,10 @@ const EditAccount = () => {
         </UserImg>
         <UserInfo>
           <h3>mukulKathuria</h3>
-          <button>Change Profile Photo</button>
+          {!Pass && <button>Change Profile Photo</button>}
         </UserInfo>
       </UserDiv>
+      <FormDiv>{Pass ? <ChangeAccountPass /> : <EditAccountForm />}</FormDiv>
     </MainDiv>
   );
 };

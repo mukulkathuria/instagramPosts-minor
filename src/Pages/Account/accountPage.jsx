@@ -18,11 +18,15 @@ const AccountPage = ({ match: { url } }) => {
         </LeftContainer>
         <RightContainer>
           <Switch>
-            <Route exact path={`${url}/edit`} render={(props) => <EditAccount {...props}/>} />
+            <Route
+              exact
+              path={`${url}/edit`}
+              render={(props) => <EditAccount {...props} />}
+            />
             <Route
               exact
               path={`${url}/password`}
-              render={() => <p>Password</p>}
+              render={(props) => <EditAccount Pass {...props} />}
             />
             <Route
               exact

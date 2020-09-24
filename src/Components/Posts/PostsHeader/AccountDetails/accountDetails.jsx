@@ -5,9 +5,10 @@ import { AccDetails, User, Logout } from "./accountDetails.style";
 import { removeUser } from "../../../../Redux/AuthReducer/userReducerActions";
 import BackDropAcc from "./backdropaccount";
 import { FaUserTie } from "react-icons/fa";
+import { BsGearWide } from "react-icons/bs";
 
 const AccountDetails = ({ user, onRemoveUser }) => {
-  const[bkdropshow , hideshow] = React.useState(true);
+  const [bkdropshow, hideshow] = React.useState(true);
   return (
     <React.Fragment>
       <BackDropAcc show={bkdropshow} clicked={() => hideshow(false)} />
@@ -17,6 +18,12 @@ const AccountDetails = ({ user, onRemoveUser }) => {
             <Link to={{ pathname: "/" + user.username }}>
               <li>
                 <FaUserTie /> Profile
+              </li>
+            </Link>
+            <Link to="/account">
+              <li>
+                <BsGearWide />
+                Settings
               </li>
             </Link>
           </ul>

@@ -24,6 +24,11 @@ export const UserInfo = styled.div`
   }
 `;
 
+export const FormDiv = styled.div`
+  margin: 1.5rem 0;
+  margin-bottom: 3rem;
+`;
+
 export const UserImg = styled.div`
   margin: 2px 32px 0 124px;
   img {

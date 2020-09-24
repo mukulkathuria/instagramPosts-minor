@@ -10,7 +10,7 @@ export const DivContainer = styled.div`
   margin: 1% 15%;
   background-color: #ffff;
   display: flex;
-  height: 86vh;
+  min-height: 86vh;
   border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
 `;
 
