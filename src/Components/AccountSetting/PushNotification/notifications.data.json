@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "head": "Likes",
+    "name":"likes",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From People I Follow", "value": 1 },
+      { "id": 3, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "johnappleseed liked your photo"
+  },
+  {
+    "id": 2,
+    "head": "Comments",
+    "name":"comments",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From People I Follow", "value": 1 },
+      { "id": 3, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "johnappleseed commented: 'Nice shot!'"
+  },
+  {
+    "id": 3,
+    "head": "Comment Likes",
+    "name":"commentlikes",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From People I Follow", "value": 1 }
+    ],
+    "sub": "johnappleseed liked your comment: 'Nice shot!' "
+  },
+  {
+    "id": 4,
+    "head": "Likes and Comments on Photos of You",
+    "name":"likeonphoto",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From People I Follow", "value": 1 },
+      { "id": 3, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "johnappleseed commented on a post you're tagged in."
+  },
+  {
+    "id": 5,
+    "head": "Accepted Follow Requests",
+    "name":"followrequest",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "John Appleseed (johnappleseed) accepted your follow request."
+  },
+  {
+    "id": 6,
+    "head": "Friends on Instagram",
+    "name":"friends",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "Your Facebook friend John Appleseed is on Instagram as johnappleseed."
+  },
+  {
+    "id": 7,
+    "head": "Instagram Direct Requests",
+    "name":"directrequest",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "johnappleseed wants to send you a message."
+  },
+  {
+    "id": 8,
+    "head": "Instagram Direct",
+    "name":"instadirect",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "johnappleseed sent you a message."
+  },
+  {
+    "id": 9,
+    "head": "Reminders",
+    "name":"reminder",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "You have unseen notifications, and other similar notifications."
+  },
+  {
+    "id": 10,
+    "head": "First Posts and Stories",
+    "name":"firstpost",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From People I Follow", "value": 1 },
+      { "id": 3, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "See johnappleseed's first story on Instagram, and other similar notifications."
+  },
+  {
+    "id": 11,
+    "head": "IGTV View Counts",
+    "name":"tvview",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "From Everyone", "value": 2 }
+    ],
+    "sub": "Your IGTV video has more than 100K views: 'My New Video!'."
+  },
+  {
+    "id": 12,
+    "head": "Support Requests",
+    "name":"supportrequest",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "on", "value": 1 }
+    ],
+    "sub": "Your support request from July 10 was just updated."
+  },
+  {
+    "id": 13,
+    "head": "Live Videos",
+    "name":"livevideo",
+    "radiogroup": [
+      { "id": 1, "label": "off", "value": 0 },
+      { "id": 2, "label": "on", "value": 1 }
+    ],
+    "sub": "johnappleseed started a live video. Watch it before it ends!"
+  }
+]

@@ -4,6 +4,7 @@ import AccountNav from "../../Components/AccountSetting/AccountNav/accountNav";
 import AppAndWebsite from "../../Components/AccountSetting/AppsandWebsite/AppAndWebsite";
 import EditAccount from "../../Components/AccountSetting/EditAccount/editAccount";
 import EmailAndSMS from "../../Components/AccountSetting/EmailAndSMS/emailSmsSetting";
+import PushNotification from "../../Components/AccountSetting/PushNotification/PushNotification";
 import {
   MainDiv,
   DivContainer,
@@ -37,7 +38,7 @@ const AccountPage = ({ match: { url } }) => {
             <Route
               exact
               path={`${url}/pushnotify`}
-              render={() => <p>PushNotification</p>}
+              render={() => <PushNotification />}
             />
             <Route
               exact
