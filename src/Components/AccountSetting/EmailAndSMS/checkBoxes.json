@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "feedback",
+    "label": "Feedback Emails",
+    "sub": "Give feedback on Instagram."
+  },
+  {
+    "id": 2,
+    "name": "reminder",
+    "label": "Reminder Emails",
+    "sub": "Get notifications you may have missed"
+  },
+  {
+    "id": 3,
+    "name": "product",
+    "label": "Product Emails",
+    "sub": "Get tips about Instagram's tools"
+  },
+  {
+    "id": 4,
+    "name": "news",
+    "label": "News Emails",
+    "sub": "Learn about new Instagram features"
+  }
+]

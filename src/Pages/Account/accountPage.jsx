@@ -1,7 +1,9 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import AccountNav from "../../Components/AccountSetting/AccountNav/accountNav";
+import AppAndWebsite from "../../Components/AccountSetting/AppsandWebsite/AppAndWebsite";
 import EditAccount from "../../Components/AccountSetting/EditAccount/editAccount";
+import EmailAndSMS from "../../Components/AccountSetting/EmailAndSMS/emailSmsSetting";
 import {
   MainDiv,
   DivContainer,
@@ -29,9 +31,8 @@ const AccountPage = ({ match: { url } }) => {
               render={(props) => <EditAccount Pass {...props} />}
             />
             <Route
-              exact
               path={`${url}/appsandwebsite`}
-              render={() => <p>AppandWebsite</p>}
+              render={(props) => <AppAndWebsite {...props} />}
             />
             <Route
               exact
@@ -51,7 +52,7 @@ const AccountPage = ({ match: { url } }) => {
             <Route
               exact
               path={`${url}/emails`}
-              render={() => <p>Email from instagram</p>}
+              render={() => <EmailAndSMS />}
             />
             <Route
               exact
