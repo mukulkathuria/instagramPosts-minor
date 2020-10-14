@@ -4,6 +4,9 @@ import AccountNav from "../../Components/AccountSetting/AccountNav/accountNav";
 import AppAndWebsite from "../../Components/AccountSetting/AppsandWebsite/AppAndWebsite";
 import EditAccount from "../../Components/AccountSetting/EditAccount/editAccount";
 import EmailAndSMS from "../../Components/AccountSetting/EmailAndSMS/emailSmsSetting";
+import LoginActivity from "../../Components/AccountSetting/LoginActivity/LoginActivity";
+import ManageContacts from "../../Components/AccountSetting/ManageContacts/ManageContacts";
+import PrivacySecurity from "../../Components/AccountSetting/PrivacySecurity/PrivacySecurity";
 import PushNotification from "../../Components/AccountSetting/PushNotification/PushNotification";
 import {
   MainDiv,
@@ -43,12 +46,12 @@ const AccountPage = ({ match: { url } }) => {
             <Route
               exact
               path={`${url}/contacts`}
-              render={() => <p>Manage Contacts</p>}
+              render={() => <ManageContacts />}
             />
             <Route
               exact
               path={`${url}/loginactivity`}
-              render={() => <p>Login Activity</p>}
+              render={() => <LoginActivity />}
             />
             <Route
               exact
@@ -58,7 +61,7 @@ const AccountPage = ({ match: { url } }) => {
             <Route
               exact
               path={`${url}/privacy`}
-              render={() => <p>Privacy</p>}
+              render={() => <PrivacySecurity />}
             />
             <Redirect from={`${url}`} to={`${url}/edit`} />
           </Switch>
