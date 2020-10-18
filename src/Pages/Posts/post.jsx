@@ -2,16 +2,15 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCollectionAsync } from "../../Redux/PostsReducer/post.collection.actions";
-import { removeUser } from "../../Redux/AuthReducer/userReducerActions";
 import Spinner from "../../Components/Spinner/spinner";
 import PostsPageHeader from "../../Components/Posts/PostsHeader/postPageHeader";
 import Dashboard from "../Dashboard/dashboard";
 import UserPage from "../User/user";
-import getUser from "../../services/users.services";
+import getUser, { getCurrentUser } from "../../services/users.services";
 import ChatBox from "../../Components/Chatbox/chatbox";
 import AccountPage from "../Account/accountPage";
 
-const Posts = ({ posts, getCollection, match, location, removeUsers }) => {
+const Posts = ({ posts, getCollection, match, location }) => {
   const [user, changeuser] = React.useState(null);
 
   React.useEffect(() => {
@@ -27,6 +26,7 @@ const Posts = ({ posts, getCollection, match, location, removeUsers }) => {
   }, []);
 
   if (!user) return <Spinner />;
+  console.log(getCurrentUser().then((res) => console.log('User', res)));
   return (
     <Suspense fallback={<Spinner />}>
       <PostsPageHeader user={user} match={match} location={location} />
@@ -35,12 +35,12 @@ const Posts = ({ posts, getCollection, match, location, removeUsers }) => {
           exact
           path="/direct/inbox"
           render={(props) => <ChatBox {...props} />}
-          />
-          <Route path="/account" render={(props) => <AccountPage {...props} />} />
+        />
+        <Route path="/account" render={(props) => <AccountPage {...props} />} />
         <Route
           path="/:userid"
           render={(props) => {
-            return <UserPage user={user} {...props} />;
+            return <UserPage currentuser={user} {...props} />;
           }}
         />
         <Route
@@ -59,6 +59,5 @@ const maptostate = (state) => ({
 });
 const maptoDispatch = (dispatch) => ({
   getCollection: () => dispatch(fetchCollectionAsync()),
-  removeUsers: () => dispatch(removeUser()),
 });
 export default connect(maptostate, maptoDispatch)(Posts);

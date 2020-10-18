@@ -1,5 +1,5 @@
+import { getRefreshToken } from "./userReducer.utils";
 import { actionTypes } from "./userReduceractionTypes";
-
 
 const initialValue = {
   user: null,
@@ -9,13 +9,13 @@ const userReducer = (state = initialValue, action) => {
     case actionTypes.addUser:
       return {
         ...state,
-        user: action.token,
+        user: getRefreshToken(state.user, action.token, action.refreshtoken),
       };
-      case actionTypes.removeUser:
-        return{
-          ...state,
-          user:null
-        }
+    case actionTypes.removeUser:
+      return {
+        ...state,
+        user: null,
+      };
     default:
       return state;
   }

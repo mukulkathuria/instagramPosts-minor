@@ -8,14 +8,17 @@ import UserIGTV from "../../Components/Users/IGTV/userigtv";
 import ProfilePosts from "../../Components/Users/UserPosts/userPosts";
 import { DivContainer, PostsDiv, MainDiv } from "./user.style";
 
-const UserPage = ({ user, match: { url }, match }) => {
+const UserPage = ({ currentuser, match: { url }, match }) => {
   React.useEffect(() => {
-    document.title = user.name + "  (@ " + user.username + ")  . Instagram";
-  }, [user]);
+    document.title =
+      currentuser.name + "  (@ " + currentuser.username + ")  . Instagram";
+  }, [currentuser]);
+
+  // debug
   return (
     <MainDiv>
       <DivContainer>
-        <UserHead user={user} />
+        <UserHead user={currentuser} />
         <UserNav url={url} />
         <PostsDiv>
           <Switch>
@@ -26,7 +29,11 @@ const UserPage = ({ user, match: { url }, match }) => {
               exact
               path={`${url}`}
               render={() => (
-                <ProfilePosts posts={user.Posts} match={match} user={user} />
+                <ProfilePosts
+                  posts={currentuser.Posts}
+                  match={match}
+                  user={currentuser}
+                />
               )}
             />
           </Switch>
