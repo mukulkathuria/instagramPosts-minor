@@ -13,10 +13,11 @@ import Modal from "../../Modal/modal";
 import { baseurl } from "../../../Data/baseUrl.json";
 import ShowUserPost from "./Posts/showPosts";
 
-const ProfilePosts = ({ posts, user }) => {
+const ProfilePosts = ({ posts, user, currentuser }) => {
   const [show, hide] = React.useState(false);
   const [showAlbum, hideAlbum] = React.useState(false);
   const [userPost, changePost] = React.useState(null);
+  const isCurrent = Boolean(user.username === currentuser.username);
   return (
     <MainDiv>
       {posts.length === 0 ? (
@@ -44,12 +45,14 @@ const ProfilePosts = ({ posts, user }) => {
               <img src={`${baseurl}/${list.ImgUrl}`} alt={list._id} />
             </GridItems>
           ))}
-          <Uploadphoto onClick={() => hide(true)}>
-            <div className="absolute">
-              <BsUpload />
-              <div>Upload your photo</div>
-            </div>
-          </Uploadphoto>
+          {isCurrent ? (
+            <Uploadphoto onClick={() => hide(true)}>
+              <div className="absolute">
+                <BsUpload />
+                <div>Upload your photo</div>
+              </div>
+            </Uploadphoto>
+          ) : null}
         </Photogrid>
       )}
       {show && (

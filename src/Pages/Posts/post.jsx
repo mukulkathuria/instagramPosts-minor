@@ -1,16 +1,17 @@
 import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
+import jwtDecode from "jwt-decode";
 import { fetchCollectionAsync } from "../../Redux/PostsReducer/post.collection.actions";
 import Spinner from "../../Components/Spinner/spinner";
 import PostsPageHeader from "../../Components/Posts/PostsHeader/postPageHeader";
 import Dashboard from "../Dashboard/dashboard";
 import UserPage from "../User/user";
-import getUser, { getCurrentUser } from "../../services/users.services";
 import ChatBox from "../../Components/Chatbox/chatbox";
 import AccountPage from "../Account/accountPage";
 
-const Posts = ({ posts, getCollection, match, location }) => {
+const Posts = (props) => {
+  const { posts, getCollection, match, location, userinfo } = props;
   const [user, changeuser] = React.useState(null);
 
   React.useEffect(() => {
@@ -18,15 +19,12 @@ const Posts = ({ posts, getCollection, match, location }) => {
   }, [getCollection]);
 
   React.useEffect(() => {
-    const userinfo = async () => {
-      const result = await getUser();
-      changeuser(result);
-    };
-    userinfo();
-  }, []);
+    const data = jwtDecode(userinfo.token);
+    changeuser(data);
+  }, [userinfo.token]);
 
   if (!user) return <Spinner />;
-  console.log(getCurrentUser().then((res) => console.log('User', res)));
+
   return (
     <Suspense fallback={<Spinner />}>
       <PostsPageHeader user={user} match={match} location={location} />
@@ -56,6 +54,7 @@ const Posts = ({ posts, getCollection, match, location }) => {
 };
 const maptostate = (state) => ({
   posts: state.posts.post,
+  userinfo: state.user.user,
 });
 const maptoDispatch = (dispatch) => ({
   getCollection: () => dispatch(fetchCollectionAsync()),

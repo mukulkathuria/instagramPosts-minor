@@ -10,7 +10,7 @@ export const addUser = (token, refreshtoken) => ({
 export const removeUser = () => {
   return async (dispatch) =>{
     try {
-      await getlogout;
+      await getlogout();
       dispatch(removetoken());
     } catch (err) {
       console.log(err);

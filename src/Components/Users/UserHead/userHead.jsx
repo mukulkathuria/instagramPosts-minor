@@ -5,23 +5,28 @@ import Modal from "../../Modal/modal";
 import UploadProfile from "./Uploads/uploadProfileImg";
 import { baseurl } from "../../../Data/baseUrl.json";
 
-const UserHead = ({ user }) => {
+const UserHead = ({ user, currentuser }) => {
   const [urlmodal, hideModal] = React.useState(false);
+  const isCurrent = Boolean(user.username === currentuser.username);
   return (
     <Header>
       <HeaderImg>
         <img
           src={`${baseurl + "/" + user.profileImg}`}
           alt="avatar"
-          onClick={() => hideModal(true)}
+          onClick={() => (isCurrent ? hideModal(true) : null)}
         />
       </HeaderImg>
       <HeaderUser>
         <div className="username">
           {user.username}
-          <Link to="/account">
-            <button>Edit Profile</button>
-          </Link>
+          {isCurrent ? (
+            <Link to="/account">
+              <button>Edit Profile</button>
+            </Link>
+          ) : (
+            <button>Follow</button>
+          )}
         </div>
         <div className="follower">
           <div>{user.Posts.length} Posts</div>
